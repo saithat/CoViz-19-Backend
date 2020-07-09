@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Data = require('../models/Data');
 
-// Welcome page
+app.get('/', async (req, res) => {
+  return res.redirect('/api');
+});
 
 // Shows all the data
 router.get('/api', async (req, res) => {

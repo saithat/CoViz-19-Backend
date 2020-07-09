@@ -14,20 +14,15 @@ const covidDataRoute = require('./routes/data-routes');
 app.use(covidDataRoute);
 app.use(bodyParser.json()); // Formats any post info as json ...
 
-app.get('/', async (req, res) => {
-  // return res.redirect('/api');
-  res.send('WELCOME');
-});
-
 // Connect to MongoDB -- Local Database
-// mongoose.connect(
-//   CONNECTION_URI,
-//   {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   },
-//   () => console.log('DB connection successful!')
-// );
+mongoose.connect(
+  CONNECTION_URI,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  () => console.log('DB connection successful!')
+);
 
 // Listen to the server
 app.listen(PORT, () => console.log(`Listening...http://localhost:${PORT}`));
