@@ -27,16 +27,16 @@ router.get('/api/:id', async (req, res) => {
 });
 
 // -----(FOR TESTING)-----
-router.post('/post', (req, res) => {
+router.post('/api/post', (req, res) => {
   const data = new Data({
-    iso_code: req.body.iso_code,
-    continent: req.body.continent,
-    location: req.body.location,
-    location_id: req.body.location_id,
-    date: req.body.date,
-    total_cases: req.body.total_cases,
-    new_cases: req.body.new_cases,
-    total_deaths: req.body.total_deaths,
+    iso_code: 'Ban',
+    continent: 'Asia',
+    location: 'Bangladesh',
+    location_id: '10',
+    date: '2019-1-10',
+    total_cases: 5,
+    new_cases: 1,
+    total_deaths: 3,
   });
 
   data
