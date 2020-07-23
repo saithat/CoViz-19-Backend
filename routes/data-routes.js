@@ -106,7 +106,7 @@ router.get('/states/:state', async (req, res) => {
 
 router.get('/historical/all', async (req, res) => {
   try {
-    const covidData = await allHistoricalData.find();
+    const covidData = await allHistoricalData.findOne();
     res.json(covidData);
   } catch (err) {
     res.json({ message: err });
@@ -115,7 +115,7 @@ router.get('/historical/all', async (req, res) => {
 
 router.get('/historical/usa', async (req, res) => {
   try {
-    const covidData = await usHistoricalData.find();
+    const covidData = await usHistoricalData.findOne();
     res.json(covidData);
   } catch (err) {
     res.json({ message: err });
