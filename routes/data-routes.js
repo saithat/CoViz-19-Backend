@@ -4,6 +4,8 @@ const Data = require('../models/Data');
 const allData = require('../models/All-Data');
 const usData = require('../models/US-Data');
 const countriesData = require('../models/Countries-Data');
+const allHistoricalData = require('../models/All-Historical-Data');
+const usHistoricalData = require('../models/US-Historical-Data');
 
 // Re-route to /api to show thw data
 router.get('/', async (req, res) => {
@@ -96,6 +98,24 @@ router.get('/states/:state', async (req, res) => {
 
   try {
     const covidData = await usData.find({ state: stateCap.join(' ') });
+    res.json(covidData);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+router.get('/historical/all', async (req, res) => {
+  try {
+    const covidData = await allHistoricalData.find();
+    res.json(covidData);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+router.get('/historical/usa', async (req, res) => {
+  try {
+    const covidData = await usHistoricalData.find();
     res.json(covidData);
   } catch (err) {
     res.json({ message: err });
