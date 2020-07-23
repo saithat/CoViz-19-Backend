@@ -32,7 +32,7 @@ router.get('/api/:id', async (req, res) => {
 
 router.get('/all', async (req, res) => {
   try {
-    const covidData = await allData.find();
+    const covidData = await allData.findOne();
     res.json(covidData);
   } catch (err) {
     res.json({ message: err });
@@ -58,7 +58,7 @@ router.get('/countries/:country', async (req, res) => {
   }
 
   try {
-    const covidData = await countriesData.find({ country: countryCap });
+    const covidData = await countriesData.findOne({ country: countryCap });
     res.json(covidData);
   } catch (err) {
     res.json({ message: err });
@@ -70,9 +70,9 @@ router.get('/countries/code/:iso', async (req, res) => {
   try {
     var covidData;
     if (countryCode.length == 2) {
-      covidData = await countriesData.find({ iso2: countryCode });
+      covidData = await countriesData.findOne({ iso2: countryCode });
     } else {
-      covidData = await countriesData.find({ iso3: countryCode });
+      covidData = await countriesData.findOne({ iso3: countryCode });
     }
     res.json(covidData);
   } catch (err) {
@@ -97,7 +97,7 @@ router.get('/states/:state', async (req, res) => {
   }
 
   try {
-    const covidData = await usData.find({ state: stateCap.join(' ') });
+    const covidData = await usData.findOne({ state: stateCap.join(' ') });
     res.json(covidData);
   } catch (err) {
     res.json({ message: err });
