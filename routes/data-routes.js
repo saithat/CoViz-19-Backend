@@ -48,7 +48,7 @@ router.get('/countries', async (req, res) => {
 
 router.get('/countries/:country', async (req, res) => {
   var countryCap = '';
-  if (req.params.country.length === 3) {
+  if (req.params.country.length === 3 || req.params.country.length === 2) {
     countryCap = req.params.country.toUpperCase();
   } else {
     countryCap =
@@ -57,6 +57,21 @@ router.get('/countries/:country', async (req, res) => {
 
   try {
     const covidData = await countriesData.find({ country: countryCap });
+    res.json(covidData);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+router.get('/countries/code/:iso', async (req, res) => {
+  var countryCode = req.params.iso.toUpperCase();
+  try {
+    var covidData;
+    if (countryCode.length == 2) {
+      covidData = await countriesData.find({ iso2: countryCode });
+    } else {
+      covidData = await countriesData.find({ iso3: countryCode });
+    }
     res.json(covidData);
   } catch (err) {
     res.json({ message: err });
