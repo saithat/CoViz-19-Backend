@@ -139,7 +139,7 @@ router.post('/user', async (req, res) => {
 
 router.get('/user', async (req, res) => {
   try {
-    const covidData = await userData.findOne();
+    const covidData = await userData.find();
     res.json(covidData);
   } catch (err) {
     res.json({ message: err });
