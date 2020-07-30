@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 // Specifying the format of the JSON data
 const dataSchema = mongoose.Schema(
   {
-    updated: Date,
+    date: String,
+    time: String,
     name: String,
     country: String,
     cases: Number,
