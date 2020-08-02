@@ -6,6 +6,7 @@ const dataSchema = mongoose.Schema(
     date: String,
     time: String,
     name: String,
+    location: String,
     body: String,
   },
   {
