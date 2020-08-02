@@ -6,10 +6,7 @@ const dataSchema = mongoose.Schema(
     date: String,
     time: String,
     name: String,
-    country: String,
-    cases: Number,
-    recovered: Number,
-    deaths: Number,
+    body: String,
   },
   {
     versionKey: false, // You should be aware of the outcome after set to false
