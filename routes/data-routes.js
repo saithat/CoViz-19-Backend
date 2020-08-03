@@ -148,7 +148,7 @@ router.get('/user', async (req, res) => {
 
 router.delete('/user/:id', async (req, res) => {
   try {
-    const covidData = await userData.deleteOne({ _id: rec.params.id });
+    const covidData = await userData.remove({ _id: rec.params.id });
     res.json({ message: 'DONE!' });
   } catch (err) {
     res.json({ message: err });
