@@ -146,10 +146,10 @@ router.get('/user', async (req, res) => {
   }
 });
 
-router.delete('/user/:id', async (req, res) => {
+router.delete('/user/delete/:id', async (req, res) => {
   try {
-    const covidData = await userData.remove({ _id: rec.params.id });
-    res.json({ message: 'DONE!' });
+    const covidData = await userData.remove({ _id: req.params.id });
+    res.json(covidData);
   } catch (err) {
     res.json({ message: err });
   }
