@@ -146,6 +146,15 @@ router.get('/user', async (req, res) => {
   }
 });
 
+router.delete('/user/:id', async (req, res) => {
+  try {
+    const covidData = await userData.deleteOne({ _id: rec.params.id });
+    res.json({ message: 'DONE!' });
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
 router.delete('/user/delete-all', async (req, res) => {
   try {
     const covidData = await userData.remove();
