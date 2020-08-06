@@ -27,4 +27,4 @@ Sai Thatigotla (https://github.com/saithat), Gandhar Viragi (https://github.com/
 
 ## CODE
 
-Front-end code - https://github.com/imrakilahmed/Covid-Frontend
+Front-end code - https://github.com/imrakilahmed/CoViz-19-Frontend
