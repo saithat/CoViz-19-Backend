@@ -146,22 +146,4 @@ router.get('/user', async (req, res) => {
   }
 });
 
-router.delete('/user/delete/:id', async (req, res) => {
-  try {
-    const covidData = await userData.remove({ _id: req.params.id });
-    res.json(covidData);
-  } catch (err) {
-    res.json({ message: err });
-  }
-});
-
-router.delete('/user/delete-all', async (req, res) => {
-  try {
-    const covidData = await userData.remove();
-    res.json(covidData);
-  } catch (err) {
-    res.json({ message: err });
-  }
-});
-
 module.exports = router;
